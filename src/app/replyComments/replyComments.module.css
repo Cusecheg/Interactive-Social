@@ -1,0 +1,51 @@
+.reply{
+    display: flex;
+    justify-content: end;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  
+}
+
+.cardreply{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    /* width: 670px;
+    height: 123px; */
+    width: 730px;
+    height: 145px;
+    padding: 30px;
+}
+.cardreply img{
+    width: 40px;
+    height: 40px;
+
+}
+
+.cardreply button{
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: hsl(238, 40%, 52%);
+}
+.cardreply textarea{
+    display: flex;
+    resize: none;
+    justify-content: center;
+    border-radius: 10px;
+    /* width: 400px;
+    height: 103px; */
+    width: 500px;
+    height: 93px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+.cardreply form{
+    display: flex;
+    gap: 10px;
+}

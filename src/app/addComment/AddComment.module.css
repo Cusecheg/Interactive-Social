@@ -1,0 +1,37 @@
+.reply{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.cardreply{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    width: 670px;
+    height: 123px;
+}
+
+.cardreply button{
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: hsl(238, 40%, 52%);
+}
+.cardreply textarea{
+    display: flex;
+    resize: none;
+    justify-content: center;
+    border-radius: 10px;
+    width: 400px;
+    height: 103px;
+}
+.cardreply form{
+    display: flex;
+    gap: 10px;
+}
