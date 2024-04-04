@@ -1,7 +1,7 @@
 "use client";
 
 import styles from './AddComment.module.css'
-import avatar from '../images/avatar.png'
+import avatar from "../../../public/images/avatars/image-ramsesmiron.png"
 import { useState } from 'react';
 import data from '../../../public/data/data';
 
@@ -37,18 +37,18 @@ function AddComment({ comments, setComments, globalCount, setGlobalCount }) {
         const updateComments = [...comments, newComment];
         setComments(updateComments);
         localStorage.setItem('dados', JSON.stringify({ ...data, comments: updateComments }));
-        console.log(comments);
+        // console.log(comments);
         setContent('');
         setGlobalCount(globalCount + 1)
-        console.log(globalCount);
+        // console.log(globalCount);
 
     };
     return (
         <div className={styles.reply}>
             <div className={styles.cardreply}>
-                <img src={avatar} alt="image" />
+                <img src="./images/avatars/image-ramsesmiron.png" alt="image" />
                 <form onSubmit={handleSubmit}>
-                    <textarea name="content" value={content} onChange={(e) => setContent(e.target.value)} cols="30" rows="10"></textarea>
+                    <textarea name="content" value={content} placeholder='Add a comment...' onChange={(e) => setContent(e.target.value)} cols="30" rows="10"></textarea>
                     <button type='submit'>SEND</button>
                 </form>
 

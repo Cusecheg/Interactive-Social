@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 
 function ReplyComments({ onReplyCommentAdded, user, globalCount, setGlobalCount }) {
-    const [content, setContent] = useState(`@${user}    `);
+    const [content, setContent] = useState(`@${user} `);
 
 
     const handleSubmit = (e) => {

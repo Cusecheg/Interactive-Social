@@ -49,7 +49,7 @@ export default function Home() {
             globalCount={globalCount}
             setGlobalCount={setGlobalCount}
           />
-
+    
 
           {comment.replies.length > 0 && comment.replies.map(reply => (
             <CardReplies

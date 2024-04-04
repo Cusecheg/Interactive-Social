@@ -1,18 +1,19 @@
+/* card comment */
+
 .card{
-    background-color: white;
-    padding: 10px;
-    border-radius: 10px;
     display: flex;
-    justify-content: center;
     gap: 30px;
-    /* width: 670px; */
     width: 730px;
-    /* height: 170px; */
     padding: 30px;
+    background-color: white;
+    border-radius: 10px;
 }
 
 .likes{
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     font-size: 16px;
     font-weight: 700;
     color: hsl(238, 40%, 52%) ;
@@ -20,9 +21,7 @@
     border-radius: 8px;
     height: 80px;
     width: 40px;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+
 }
 .likes p{
     cursor: pointer;
@@ -44,11 +43,23 @@
     height: 40px;
 
 }
+.data1 .user{
+    color: hsl(212, 24%, 26%);
+    font-weight: 700;
+}
+.data1 .iconUser{
+    color: hsl(238, 40%, 52%);
+}
+
+.data1 .createdAt{
+    color: hsl(211, 10%, 45%);
+
+}
+
 .data2{
     display: flex;
     font-size: 14px;
     font-weight: 700;
-    gap: 10px;
     color: hsl(238, 40%, 52%) ;
     cursor: pointer;
 }
@@ -59,11 +70,13 @@
 
 }
 
+
+
 .information{
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 100%;
+    width: 600px;
 }
 
 .textarea{
@@ -71,20 +84,25 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 25px;
-    word-wrap: break-word; /* Rompe las palabras largas para ajustarse al ancho */
+    word-wrap: break-word; 
 }
+
+/* card edition */
 
 .cardreply form{
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: flex-end;
     gap: 10px;
 }
 
 .cardreply textarea{
-    justify-content: center;
     resize: none;
     border-radius: 10px;
+    padding: 10px 20px 0 20px;
+    color: hsl(212, 24%, 26%);
+    font-size: 14px;
+    cursor: pointer;
     width: 100%;
     height: 103px;
 }
@@ -96,4 +114,101 @@
     border: none;
     color: white;
     background-color: hsl(238, 40%, 52%);
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+
+.delete{
+    color: rgb(216, 69, 69);
+    font-size: 14px;
+    font-weight: 700;
+}
+.edit{
+    color: hsl(238, 40%, 52%);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+
+
+
+/* when hover */
+
+.reply:hover{
+    opacity: 0.5;
+}
+
+.cardreply button:hover{
+    opacity: 0.5;
+}
+
+.delete:hover{
+    opacity: 0.5;
+}
+.edit:hover{
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 375px){
+
+    
+.card{
+    gap: 15px;
+    width: 350px;
+    padding: 15px;
+
+
+}
+
+.likes{
+    font-size: 11px;
+
+}
+
+
+.data1{
+    gap: 10px;
+    font-size: 11px;
+}
+
+.data1 img{
+    width: 30px;
+    height: 30px;
+}
+
+.data2{
+    font-size: 11px;
+}
+
+.information{
+    width: 286px;
+}
+
+.textarea{
+    font-size: 13px;
+    line-height: 20px;
+}
+
+
+.cardreply textarea{
+    font-size: 11px;
+    height: 80px;
+}
+
+.cardreply button{
+    width: 70px;
+    height: 25px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.delete{
+    font-size: 11px;
+}
+.edit{
+    font-size: 11px;
+}
+
 }

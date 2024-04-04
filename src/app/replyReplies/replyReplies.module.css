@@ -1,3 +1,5 @@
+/* card reply replies */
+
 .reply{
     display: flex;
     justify-content: flex-end;
@@ -9,10 +11,15 @@
     display: flex;
     justify-content: space-between;
     background-color: white;
-    padding: 10px;
+    padding: 30px;
     border-radius: 10px;
-    width: 500px;
-    height: 123px;
+    width: 600px;
+    height: 150px;
+}
+
+.cardreply img{
+    width: 40px;
+    height: 40px;
 }
 
 .cardreply button{
@@ -22,18 +29,22 @@
     border: none;
     color: white;
     background-color: hsl(238, 40%, 52%);
+    font-size: 16px;
+    font-weight: bolder;
+    cursor: pointer;
 }
+
 .cardreply textarea{
     display: flex;
     resize: none;
     justify-content: center;
     border-radius: 10px;
-    width: 300px;
-    height: 103px;
+    width: 350px;
+    padding: 10px 20px 0 20px;
 }
 .line{
     border: 0.5px solid hsl(223, 19%, 93%);
-    margin-right: 140px;
+    margin-right: 80px;
 }
 
 .cardreply form{
@@ -41,3 +52,35 @@
     gap: 10px;
 }
 
+/* when hover  */
+.cardreply button:hover{
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 375px)  {
+
+
+    .cardreply{
+        width: 300px;
+        height: 150px;
+        gap: 10px;
+    }
+    .cardreply img{
+        width: 30px;
+        height: 30px;
+    }
+
+    .cardreply button{
+        width: 50px;
+        height: 25px;
+        border-radius: 5px;
+        font-size: 12px;
+    }
+    .cardreply textarea{
+        width: 150px;
+    }
+    .line{
+        margin-right: 25px;
+    }
+    
+}

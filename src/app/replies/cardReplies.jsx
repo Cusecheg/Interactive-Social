@@ -1,7 +1,7 @@
 "use client";
 
 import styles from './cardReplies.module.css'
-import { FaPen, FaReply, FaTrash } from "react-icons/fa";
+import { FaPen, FaReply, FaTrash, FaUser } from "react-icons/fa";
 import ReplyReplies from '../replyReplies/replyReplies'
 import { useReducer, useEffect } from 'react';
 import data from '../../../public/data/data';
@@ -77,7 +77,7 @@ function CardReplies({ image, user, createdAt, score, content, exist, comments, 
 
         setComments(updatedComments)
         localStorage.setItem('dados', JSON.stringify({ ...data, comments: updatedComments }));
-        console.log(updatedComments);
+        // console.log(updatedComments);
     };
 
 
@@ -106,7 +106,7 @@ function CardReplies({ image, user, createdAt, score, content, exist, comments, 
             localStorage.setItem('dados', JSON.stringify({ ...data, comments: updatedComments }));
             const likes = JSON.parse(localStorage.getItem('likes')) || {};
             localStorage.setItem("likes", JSON.stringify({ ...likes, [`liked-id_${id}`]: true }));
-            console.log(updatedComments);
+            // console.log(updatedComments);
         }
 
         if (!state.like && state.noLike) {
@@ -124,7 +124,7 @@ function CardReplies({ image, user, createdAt, score, content, exist, comments, 
             localStorage.setItem('dados', JSON.stringify({ ...data, comments: updatedComments }));
             const likes = JSON.parse(localStorage.getItem('likes')) || {};
             localStorage.setItem("likes", JSON.stringify({ ...likes, [`liked-id_${id}`]: true, [`noliked-id_${id}`]: false }));
-            console.log(updatedComments);
+            // console.log(updatedComments);
         }
 
     }
@@ -155,7 +155,7 @@ function CardReplies({ image, user, createdAt, score, content, exist, comments, 
             localStorage.setItem('dados', JSON.stringify({ ...data, comments: updatedComments }));
             const likes = JSON.parse(localStorage.getItem('likes')) || {};
             localStorage.setItem("likes", JSON.stringify({ ...likes, [`noliked-id_${id}`]: true }));
-            console.log(updatedComments);
+            // console.log(updatedComments);
         }
 
 
@@ -175,7 +175,7 @@ function CardReplies({ image, user, createdAt, score, content, exist, comments, 
             localStorage.setItem('dados', JSON.stringify({ ...data, comments: updatedComments }));
             const likes = JSON.parse(localStorage.getItem('likes')) || {};
             localStorage.setItem("likes", JSON.stringify({ ...likes, [`noliked-id_${id}`]: true, [`liked-id_${id}`]: false }));
-            console.log(updatedComments);
+            // console.log(updatedComments);
         }
 
     }
@@ -196,8 +196,9 @@ function CardReplies({ image, user, createdAt, score, content, exist, comments, 
                         <div className={styles.data}>
                             <div className={styles.data1}>
                                 <img src={image} alt='image'></img>
-                                <p>{user}</p>
-                                <p>{createdAt}</p>
+                                <p className={styles.user}>{user}</p>
+                                {exist && <div className={styles.iconUser}><FaUser/></div>}
+                                <p className={styles.createdAt}>{createdAt}</p>
                             </div>
                             {exist ?
                                 <div className={styles.icon}>
@@ -213,10 +214,10 @@ function CardReplies({ image, user, createdAt, score, content, exist, comments, 
                                     <p>Reply</p>
                                 </div>}
                         </div>
+                        
                         <div className={styles.textarea}>
 
                             {state.openEdit ?
-
                                 <div className={styles.cardreply}>
                                     <form onSubmit={updateReplyComment}>
                                         <textarea name="edit" value={state.edit}
@@ -227,8 +228,7 @@ function CardReplies({ image, user, createdAt, score, content, exist, comments, 
                                             <button type='submit'>UPDATE</button>}
                                     </form>
 
-                                </div> :
-                                <div className={styles.textarea}> <p>{content}</p> </div>}
+                                </div>: <p>{content}</p>}
 
                         </div>
                     </div>

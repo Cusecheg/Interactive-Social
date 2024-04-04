@@ -81,7 +81,7 @@ function CardComments({ image, user, createdAt, score, content, id, exist, setCo
         const updatedComments = comments.filter(item => item.id !== id);
         setComments(updatedComments);
         localStorage.setItem('dados', JSON.stringify({ ...data, comments: updatedComments }));
-        alert(id);
+        // alert(id);
     };
 
 
@@ -102,7 +102,7 @@ function CardComments({ image, user, createdAt, score, content, id, exist, setCo
         dispatch({ type: ActionTypes.SetShowReplyComments, payload: (false) });
         localStorage.setItem('dados', JSON.stringify({ ...data, comments: updatedComments }));
         setComments(updatedComments);
-        console.log(updatedComments);
+        // console.log(updatedComments);
     };
 
     // like
@@ -128,7 +128,7 @@ function CardComments({ image, user, createdAt, score, content, id, exist, setCo
             localStorage.setItem('dados', JSON.stringify({ ...data, comments: updatedComments }));
             const likes = JSON.parse(localStorage.getItem('likes')) || {};
             localStorage.setItem("likes", JSON.stringify({ ...likes, [`liked-id_${id}`]: true }));
-            console.log(updatedComments);
+            // console.log(updatedComments);
         }
 
         if (!state.like && state.noLike) {
@@ -145,7 +145,7 @@ function CardComments({ image, user, createdAt, score, content, id, exist, setCo
             localStorage.setItem('dados', JSON.stringify({ ...data, comments: updatedComments }));
             const likes = JSON.parse(localStorage.getItem('likes')) || {};
             localStorage.setItem("likes", JSON.stringify({ ...likes, [`liked-id_${id}`]: true, [`noliked-id_${id}`]: false }));
-            console.log(updatedComments);
+            // console.log(updatedComments);
         }
 
     }
@@ -174,7 +174,7 @@ function CardComments({ image, user, createdAt, score, content, id, exist, setCo
             localStorage.setItem('dados', JSON.stringify({ ...data, comments: updatedComments }));
             const likes = JSON.parse(localStorage.getItem('likes')) || {};
             localStorage.setItem("likes", JSON.stringify({ ...likes, [`noliked-id_${id}`]: true }));
-            console.log(updatedComments);
+            // console.log(updatedComments);
         }
 
 
@@ -192,7 +192,7 @@ function CardComments({ image, user, createdAt, score, content, id, exist, setCo
             localStorage.setItem('dados', JSON.stringify({ ...data, comments: updatedComments }));
             const likes = JSON.parse(localStorage.getItem('likes')) || {};
             localStorage.setItem("likes", JSON.stringify({ ...likes, [`noliked-id_${id}`]: true, [`liked-id_${id}`]: false }));
-            console.log(updatedComments);
+            // console.log(updatedComments);
         }
 
 
@@ -221,21 +221,22 @@ function CardComments({ image, user, createdAt, score, content, id, exist, setCo
                     <div className={styles.data}>
                         <div className={styles.data1}>
                             <img src={image} alt='image'></img>
-                            <p>{user}</p>
-                            {exist && <FaUser/>}
-                            <p>{createdAt}</p>
+                            <p className={styles.user}>{user}</p>
+                            {exist && <div className={styles.iconUser}><FaUser/></div>}
+                            <p className={styles.createdAt}>{createdAt}</p>
                                                 
                         </div>
                         <div className={styles.data2}>
                             {exist ?
-                                <>
-                                    <FaTrash onClick={() => { deleteComments(id) }} />
-                                    <FaPen onClick={() => { dispatch({ type: ActionTypes.SetOpenEdit, payload: true }) }}
-                                        onDoubleClick={() => { dispatch({ type: ActionTypes.SetOpenEdit, payload: false }) }} />
-                                </> :
+                                <div className={styles.icon}>
+                                    <p className={styles.delete} onClick={() => {deleteComments(id)}}><FaTrash/> Delete</p>
+                                    <p className={styles.edit} onClick={() => {dispatch({ type: ActionTypes.SetOpenEdit, payload: true })}}
+                                        onDoubleClick={() => {dispatch({type: ActionTypes.SetOpenEdit, payload: false })}}>
+                                            <FaPen/> Edit </p>
+                                </div> :
 
-                                <div onClick={() => { dispatch({ type: ActionTypes.SetShowReplyComments, payload: true }) }}
-                                    onDoubleClick={() => { dispatch({ type: ActionTypes.SetShowReplyComments, payload: false }) }}>
+                                <div className={styles.reply} onClick={() => { dispatch({ type: ActionTypes.SetShowReplyComments, payload: true})}}
+                                    onDoubleClick={() => { dispatch({ type: ActionTypes.SetShowReplyComments, payload: false })}}>
                                     <FaReply />
                                     <p>Reply</p>
                                 </div>

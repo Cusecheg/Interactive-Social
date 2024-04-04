@@ -12,7 +12,7 @@ import data from '../../../public/data/data';
 
 function ReplyReplies({ user, globalCount, setGlobalCount, comments, setComments, id, dispatch }) {
 
-    const [content, setContent] = useState(`@${user}`);
+    const [content, setContent] = useState(`@${user} `);
 
 
     // Add new reply of the comment on based to the reply
@@ -39,7 +39,7 @@ function ReplyReplies({ user, globalCount, setGlobalCount, comments, setComments
         const updatedComment = comments.map(comment => {
             if (comment.replies.find(reply => reply.id === id)) {
                 const updatedReplies = [...comment.replies, newComment];
-                console.log(updatedReplies);
+                // console.log(updatedReplies);
                 return { ...comment, replies: updatedReplies }
             }
             return comment
@@ -70,7 +70,7 @@ function ReplyReplies({ user, globalCount, setGlobalCount, comments, setComments
         <div className={styles.reply}>
             <div className={styles.line}></div>
             <div className={styles.cardreply}>
-                <img src={avatar} alt="image" />
+                <img src="./images/avatars/image-ramsesmiron.png" alt="image" />
                 <form onSubmit={handleSubmit}>
                     <textarea name="content" value={content} onChange={(e) => { setContent(e.target.value) }} > </textarea>
                     <button type='submit'>REPLY</button>
