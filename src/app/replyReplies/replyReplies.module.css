@@ -57,7 +57,7 @@
     opacity: 0.5;
 }
 
-@media screen and (max-width: 375px)  {
+@media screen and (max-width: 720px)  {
 
 
     .cardreply{
